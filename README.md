@@ -29,28 +29,53 @@ This repository focuses deliberately on the first version as a didactic baseline
 
 ```text
 anomaly-autoencoder-sklearn-baseline/
-├─ src/
-│  ├─ __init__.py              # Marks src as a package
-│  ├─ data_loader.py           # Load images from per-person folders (train/test)
-│  ├─ preprocess.py            # Min-max scaling and flattening of images
-│  ├─ model.py                 # SklearnAutoencoder wrapper around MLPRegressor
-│  ├─ train.py                 # Train autoencoder on images under data/train
-│  ├─ evaluate.py              # Evaluate reconstruction errors on data/test
-│  └─ infer.py                 # Infer anomaly score for a single image
 │
-├─ data/
-│  └─ README.md                # Expected train/test per-person structure
+├─ src/                               # Core source code (scikit-learn baseline)
+│  ├─ __init__.py                     # Makes src a package
+│  ├─ data_loader.py                  # Loads grayscale images by person
+│  ├─ preprocess.py                   # Min-max scaling + flattening utilities
+│  ├─ model.py                        # SklearnAutoencoder wrapper around MLPRegressor
+│  ├─ train.py                        # Train autoencoder on data/train
+│  ├─ evaluate.py                     # Evaluate reconstruction errors on data/test
+│  └─ infer.py                        # Infer anomaly score for a single image
 │
-├─ tests/
-│  └─ test_smoke.py            # Smoke test for the autoencoder pipeline
+├─ data/                              # Synthetic example dataset
+│  ├─ train/
+│  │  ├─ person1/
+│  │  │   ├─ frame000.jpg
+│  │  │   ├─ frame001.jpg
+│  │  │   └─ frame002.jpg
+│  │  └─ person2/
+│  │      ├─ frame000.jpg
+│  │      ├─ frame001.jpg
+│  │      └─ frame002.jpg
+│  ├─ test/
+│  │  ├─ person1/
+│  │  │   ├─ frame000.jpg
+│  │  │   ├─ frame001.jpg
+│  │  │   └─ frame002.jpg
+│  │  └─ person2/
+│  │      ├─ frame000.jpg
+│  │      ├─ frame001.jpg
+│  │      └─ frame002.jpg
+│  └─ README.md                       # Explanation of expected data structure
+│
+├─ scripts/                           # Utility scripts
+│  └─ create_synthetic_dataset.py     # Script for generating synthetic example data
+│
+├─ tests/                             # Basic smoke testing
+│  └─ test_smoke.py                   # Ensures model builds, trains, reconstructs
 │
 ├─ notebooks/
-│  └─ demo_colab.ipynb         # (Optional) Colab notebook to run the pipeline
+│  └─ demo_colab.ipynb                # Google Colab demo notebook to run the pipeline
 │
-├─ models/                     # (created at runtime) saved autoencoder and scaler
-├─ requirements.txt            # Python dependencies (scikit-learn, OpenCV, etc.)
-├─ .gitignore                  # Ignore caches, venvs, models, logs
-└─ README.md                   # This file
+├─ models/                            # (Generated at runtime) Saved model + scaler
+│
+├─ requirements.txt                   # scikit-learn, OpenCV, numpy, matplotlib, joblib, pytest
+├─ .gitignore                         # Ignore caches, environments, models, logs
+├─ LICENSE                            # MIT License
+└─ README.md                          # Project documentation (this file)
+
 ```
 
 ---
