@@ -52,6 +52,7 @@ anomaly-autoencoder-sklearn-baseline/
 ├─ requirements.txt            # Python dependencies (scikit-learn, OpenCV, etc.)
 ├─ .gitignore                  # Ignore caches, venvs, models, logs
 └─ README.md                   # This file
+```
 
 ---
 
@@ -62,11 +63,13 @@ Clone the repository:
 ```bash
 git clone https://github.com/giacomobettas/anomaly-autoencoder-sklearn-baseline.git
 cd anomaly-autoencoder-sklearn-baseline
+```
 
 Install dependencies:
 
 ```bash
 pip install -r requirements.txt
+```
 
 ---
 
@@ -84,6 +87,7 @@ data/
 └─ test/
    ├─ person1/
    ├─ person2/
+```
 
 Each folder contains .jpg / .png images. Resolution doesn’t matter: they will be resized to 64×64 grayscale.
 
@@ -93,6 +97,7 @@ Each folder contains .jpg / .png images. Resolution doesn’t matter: they will 
 python -m src.train --train_dir data/train \
     --model_path models/autoencoder.pkl \
     --scaler_path models/scaler.pkl
+```
 
 3. Evaluate on test set
 
@@ -101,6 +106,7 @@ python -m src.evaluate --test_dir data/test \
     --model_path models/autoencoder.pkl \
     --scaler_path models/scaler.pkl \
     --threshold_percentile 99.0
+```
 
 This prints:
 - Global anomaly rate
@@ -115,6 +121,7 @@ python -m src.infer \
     --model_path models/autoencoder.pkl \
     --scaler_path models/scaler.pkl \
     --threshold 0.01
+```
 
 ---
 
@@ -140,6 +147,7 @@ To run the smoke test:
 
 ```bash
 pytest tests/
+```
 
 This checks that the autoencoder can be built, trained briefly, and used for reconstruction on a tiny random dataset.
 
