@@ -75,9 +75,9 @@ pip install -r requirements.txt
 
 ## ▶️ Basic Usage (Local)
 
-1. Prepare the dataset
+# 1. Prepare the dataset
 
-Follow the structure described in data/README.md, for example:
+Follow the structure described in `data/README.md`, for example:
 
 ```text
 data/
@@ -89,9 +89,9 @@ data/
    ├─ person2/
 ```
 
-Each folder contains .jpg / .png images. Resolution doesn’t matter: they will be resized to 64×64 grayscale.
+Each folder contains `.jpg` / `.png` images. Resolution doesn’t matter: they will be resized to 64×64 grayscale.
 
-2. Train the autoencoder
+# 2. Train the autoencoder
 
 ```bash
 python -m src.train --train_dir data/train \
@@ -99,7 +99,7 @@ python -m src.train --train_dir data/train \
     --scaler_path models/scaler.pkl
 ```
 
-3. Evaluate on test set
+# 3. Evaluate on test set
 
 ```bash
 python -m src.evaluate --test_dir data/test \
@@ -113,7 +113,7 @@ This prints:
 - Per-person anomaly rate
 - A histogram of reconstruction errors with the chosen threshold
 
-4. Single-image inference
+# 4. Single-image inference
 
 ```bash
 python -m src.infer \
@@ -127,14 +127,14 @@ python -m src.infer \
 
 ## 💻 Google Colab Usage
 
-A ready-to-use Colab notebook is provided under notebooks/demo_colab.ipynb.
+A ready-to-use Colab notebook is provided under `notebooks/demo_colab.ipynb`.
 
 Typical workflow inside Colab:
 
 1. Mount Google Drive (optional) if your dataset is in Drive.
 2. Clone this repository inside Colab.
-3. Install dependencies from requirements.txt.
-4. Set dataset paths (data/train, data/test) according to your setup.
+3. Install dependencies from `requirements.txt`.
+4. Set dataset paths (`data/train`, `data/test`) according to your setup.
 5. Run the training and evaluation commands directly from the notebook.
 
 See the notebook cells and comments for a step-by-step explanation.
@@ -155,7 +155,7 @@ This checks that the autoencoder can be built, trained briefly, and used for rec
 
 ## 📚 Notes
 
-This repository represents a baseline iteration from my thesis project in the Master in Data Analysis for Business Intelligence and Data Science.
+This repository represents a **baseline iteration** from my thesis project in the **Master in Data Analysis for Business Intelligence and Data Science**.
 
 It is intentionally simple and scikit-learn–based, focusing on clarity and structure.
 
