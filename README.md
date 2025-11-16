@@ -1,7 +1,6 @@
 # 🧠 Autoencoder-Based Anomaly Detection (scikit-learn Baseline)
 
-This repository contains an early iteration of a video-based anomaly detection project,  
-developed as part of my **thesis with internship for the Master in "Data Analysis for Business Intelligence and Data Science"**.
+This repository contains an early iteration of a video-based anomaly detection project for home video surveillance of the elderly, developed as part of my **thesis with internship for the Master in "Data Analysis for Business Intelligence and Data Science"**.
 
 The goal of this iteration is to implement a **lightweight, interpretable baseline** using:
 
