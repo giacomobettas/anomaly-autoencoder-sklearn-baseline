@@ -75,7 +75,7 @@ pip install -r requirements.txt
 
 ## ▶️ Basic Usage (Local)
 
-# 1. Prepare the dataset
+### 1. Prepare the dataset
 
 Follow the structure described in `data/README.md`, for example:
 
@@ -91,7 +91,7 @@ data/
 
 Each folder contains `.jpg` / `.png` images. Resolution doesn’t matter: they will be resized to 64×64 grayscale.
 
-# 2. Train the autoencoder
+### 2. Train the autoencoder
 
 ```bash
 python -m src.train --train_dir data/train \
@@ -99,7 +99,7 @@ python -m src.train --train_dir data/train \
     --scaler_path models/scaler.pkl
 ```
 
-# 3. Evaluate on test set
+### 3. Evaluate on test set
 
 ```bash
 python -m src.evaluate --test_dir data/test \
@@ -113,7 +113,7 @@ This prints:
 - Per-person anomaly rate
 - A histogram of reconstruction errors with the chosen threshold
 
-# 4. Single-image inference
+### 4. Single-image inference
 
 ```bash
 python -m src.infer \
