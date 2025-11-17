@@ -207,7 +207,7 @@ This demonstrates that the baseline model was able to capture anomalies in princ
 
 ---
 
-![Reconstruction Error – Test 2-1](media/fall_video_test2_error.png)
+![Reconstruction Error – Test 2-1](media/fall_video_test2-1_error.png)
 
 ---
 
