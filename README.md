@@ -76,7 +76,7 @@ anomaly-autoencoder-sklearn-baseline/
 │
 ├─ models/                            # (Generated at runtime) Saved model + scaler
 │
-├─ requirements.txt                   # scikit-learn, OpenCV, numpy, matplotlib, joblib, pytest
+├─ requirements.txt                   # scikit-learn OpenCV, numpy, matplotlib, joblib, pytest
 ├─ .gitignore                         # Ignore caches, environments, models, logs
 ├─ LICENSE                            # MIT License
 └─ README.md                          # Project documentation (this file)
@@ -118,7 +118,7 @@ data/
    ├─ person2/
 ```
 
-Each folder contains `.jpg` / `.png` images. Resolution doesn’t matter: they will be resized to 64×64 grayscale.
+Each folder contains `.jpg` / `.png` images. Resolution doesn't matter: they will be resized to 64×64 grayscale.
 
 ### 2. Train the autoencoder
 
@@ -185,8 +185,7 @@ This checks that the autoencoder can be built, trained briefly, and used for rec
 # 📊 Baseline Results on the Université de Bourgogne Fall Detection Dataset
 
 This early scikit-learn autoencoder was tested on the
-**Université de Bourgogne Europe – Fall Detection Dataset**:
-👉 [https://imvia.ube.fr/en/database/fall-detection-dataset-2.html](https://imvia.ube.fr/en/database/fall-detection-dataset-2.html)
+[**Université de Bourgogne Europe - Fall Detection Dataset**](https://imvia.ube.fr/en/database/fall-detection-dataset-2.html)
 
 This dataset contains controlled indoor scenes including **fall events**, and aligns naturally with the goal of anomaly detection for **elferly home video surveillance** — the core objective of my thesis project.
 
@@ -199,15 +198,15 @@ This demonstrates that the baseline model was able to capture anomalies in princ
 
 ## 📈 Example Reconstruction Error Plots
 
-![Reconstruction Error – Video 21](media/fall_video_21_error.png)
+![Reconstruction Error - Video 21](media/fall_video_21_error.png)
 
 ---
 
-![Reconstruction Error – Video 68 (validation)](media/fall_video_68_error.png)
+![Reconstruction Error - Video 68 (validation)](media/fall_video_68_error.png)
 
 ---
 
-![Reconstruction Error – Test 2-1](media/fall_video_test2-1_error.png)
+![Reconstruction Error - Test 2-1](media/fall_video_test2-1_error.png)
 
 ---
 
@@ -243,6 +242,6 @@ This motivated the transition to:
 
 This repository represents a **baseline iteration** from my thesis project in the **Master in Data Analysis for Business Intelligence and Data Science**.
 
-It is intentionally simple and scikit-learn–based, focusing on clarity and structure.
+It is intentionally simple and scikit-learn-based, focusing on clarity and structure.
 
-More advanced deep learning–based versions (with YOLO and face recognition) are part of later iterations and will live in separate repositories.
+More advanced deep learning-based versions (with YOLO and face recognition) are part of later iterations and will live in separate repositories.
