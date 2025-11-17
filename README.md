@@ -69,6 +69,11 @@ anomaly-autoencoder-sklearn-baseline/
 ├─ notebooks/
 │  └─ demo_colab.ipynb                # Google Colab demo notebook to run the pipeline
 │
+├─ media/                             # Reconstruction error plots (for README)
+│  ├─ fall_video_21_error.png
+│  ├─ fall_video_68_error.png
+│  └─ fall_video_test2-1_error.png
+│
 ├─ models/                            # (Generated at runtime) Saved model + scaler
 │
 ├─ requirements.txt                   # scikit-learn, OpenCV, numpy, matplotlib, joblib, pytest
@@ -174,6 +179,63 @@ pytest tests/
 ```
 
 This checks that the autoencoder can be built, trained briefly, and used for reconstruction on a tiny random dataset.
+
+---
+
+# 📊 Baseline Results on the Université de Bourgogne Fall Detection Dataset
+
+This early scikit-learn autoencoder was tested on the
+**Université de Bourgogne Europe – Fall Detection Dataset**:
+👉 [https://imvia.ube.fr/en/database/fall-detection-dataset-2.html](https://imvia.ube.fr/en/database/fall-detection-dataset-2.html)
+
+This dataset contains controlled indoor scenes including **fall events**, and aligns naturally with the goal of anomaly detection for **elferly home video surveillance** — the core objective of my thesis project.
+
+During early Colab experiments, reconstruction error was plotted frame-by-frame to understand how well the MLPRegressor-based autoencoder responds to falls.
+
+The results showed **high reconstruction error throughout videos**, but **consistent and pronounced spikes during fall events**.
+This demonstrates that the baseline model was able to capture anomalies in principle, but remained **too weak and noisy for reliable detection in real-world settings**.
+
+---
+
+## 📈 Example Reconstruction Error Plots
+
+![Reconstruction Error – Video 21](media/fall_video_21_error.png)
+
+---
+
+![Reconstruction Error – Video 68 (validation)](media/fall_video_68_error.png)
+
+---
+
+![Reconstruction Error – Test 2-1](media/fall_video_test2_error.png)
+
+---
+
+## 📌 Interpretation
+
+Across all videos:
+
+* Reconstruction error remains **consistently elevated**, indicating the model struggles to reconstruct normal video frames with precision.
+* Anomaly (fall) events produce **clear, sharp spikes** in reconstruction error.
+* While promising, the model is **far from deployment-ready** due to:
+
+  * high noise
+  * poor generalization
+  * sensitivity to lighting and motion
+  * the limitations of a shallow MLPRegressor
+
+These results provided valuable insight:
+
+> **The baseline autoencoder was suboptimal but informative, showing the need for deeper models, improved training strategies, and more robust datasets.**
+
+This motivated the transition to:
+
+* ✔ **Deep convolutional autoencoders (TensorFlow/Keras)**
+* ✔ **Data generators for stable long training sessions (Colab runtime compatible)**
+* ✔ **Checkpointing and resuming training**
+* ✔ **YOLO-based person detection for region-of-interest extraction**
+* ✔ **Face recognition for person-specific anomaly tracking**
+* ✔ **A more complete and varied dataset**
 
 ---
 
