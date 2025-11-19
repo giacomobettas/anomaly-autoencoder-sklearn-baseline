@@ -23,6 +23,7 @@ data/
    │   ├─ frame101.jpg
    │   ├─ frame102.jpg
    └─ ...
+```
 
 - Images should be grayscale or color; they will be converted to grayscale and resized.
 - Folder names (person1, person2, …) are used as labels for analysis (per-person anomaly rates).
